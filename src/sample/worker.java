@@ -1,5 +1,9 @@
 package sample;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class worker {
     private String name;
     private int age;
@@ -10,6 +14,11 @@ public class worker {
     private boolean ageVerified;
     private boolean payVerified;
     private boolean paidOnTime;
+
+    private LocalDate birthday;
+    private LocalDate dateLastPaid;
+
+    private static DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 
     public worker (String name, int age, float wage, String bankAccount) {

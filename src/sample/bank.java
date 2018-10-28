@@ -43,6 +43,10 @@ public class bank {
         lastWorker = workSource.getWorker(accNumber);
     }
 
+    public worker getActiveWorker() {
+        return lastWorker;
+    }
+
     public String getName() {
         return name;
     }

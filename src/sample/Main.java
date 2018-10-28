@@ -30,12 +30,19 @@ public class Main extends Application {
         PC.addSupplier("Supplier2", "Brazil");
         supplier s1 = PC.getSupplier("Supplier1");
         supplier s2 = PC.getSupplier("Supplier2");
-        s1.addWorker("Fred", 24, 7.4f, "123456789");
-        s1.addWorker("Doug", 19, 4.2f, "987654321");
+        s2.addWorker("Fred", 24, 7.4f, "123456789");
+        s2.addWorker("Doug", 19, 4.2f, "987654321");
         s2.addWorker("Gregor The Elder", 204, 102.3f, "7");
         s2.addBank("Pasta Bank");
         bank bsb = s2.getBank("Pasta Bank");
         bsb.addClient("7");
+        bsb.addClient("123456789");
+        bsb.addClient("987654321");
+        s2.getWorker("7").setMonthlyHours(9);
+        s2.getWorker("123456789").setMonthlyHours(9);
+        s2.getWorker("987654321").setMonthlyHours(9);
+
+
 
 
 
@@ -135,7 +142,7 @@ public class Main extends Application {
                 Label paid = new Label( "Amount paid:" );
                 gridBankContinued.add( paid, 0, 3 );
             
-                Label paid1 = new Label( "£££" );
+                Label paid1 = new Label( "$$$");
                 gridBankContinued.add( paid1, 1, 3 );
             
 //                Label paid2 = new Label( "£££" );
@@ -262,6 +269,8 @@ public class Main extends Application {
                         
                             primaryStage.getScene().setRoot( gridBankContinued );
             //        primaryStage.setScene(new Scene(grid, 300, 250));
+                            paid1.setText(Float.toString(bsb.getActiveWorker().getExpectedPay()) );
+
                             primaryStage.show();
                         }
                     });
@@ -322,7 +331,7 @@ public class Main extends Application {
                             //if (bsb.clientCheck("7")) System.out.println("aaaaaaaaa");
 
 
-                            primaryStage.getScene().setRoot( gridMainMenu );
+                            primaryStage.getScene().setRoot( gridBankMain );
 
                             bsb.validateWorker(cb1.isSelected(), cb2.isSelected(), cb3.isSelected());
                             /*
@@ -330,7 +339,7 @@ public class Main extends Application {
                                    ENTER CHOICES
                                    TO THE DATABASE
                              */
-                            System.out.print(s2.getWorker("7").overallVerity());
+                            System.out.println(bsb.getActiveWorker().overallVerity());
                             primaryStage.show();
                         }
                     });

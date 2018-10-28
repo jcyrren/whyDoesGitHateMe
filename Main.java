@@ -231,9 +231,38 @@ public class Main extends Application {
                 hbBtnSupplierSearchBack.setAlignment(Pos.CENTER_LEFT);
                 hbBtnSupplierSearchBack.getChildren().add(btnSupplierSearchBack);
                 gridSupplierSearch.add(hbBtnSupplierSearchBack, 0, 2);
-                
-                
                 // --------- END Supplier Search For Worker  --------- //
+                // --------- Supplier viewing worker scene ---------- //
+                GridPane gridWorker = new GridPane();
+                gridWorker.setAlignment( Pos.CENTER );
+                gridWorker.setHgap( 10 );
+                gridWorker.setVgap( 10 );
+                gridWorker.setPadding( new Insets( 25, 25, 25, 25 ) );
+
+                Text title = new Text("Worker's profile");
+                title.setFont( Font.font("Tahoma", FontWeight.NORMAL, 24));
+                gridWorker.add(title, 0, 0);
+
+                Text name = new Text("Name:");
+                gridWorker.add(name, 0, 1);
+
+                TextField nameField = new TextField();
+                gridWorker.add(nameField, 1, 1);
+
+
+                Text dateofBirth = new Text("Date of birth:");
+                gridWorker.add(dateofBirth, 0, 2);
+
+                Text workHours = new Text("Work hours:");
+                gridWorker.add(workHours, 0, 3);
+
+                Text payRate = new Text("Pay rate:");
+                gridWorker.add(payRate, 0, 4);
+
+                Text bank = new Text("Bank Account:");
+                gridWorker.add(bank, 0, 5);
+
+
         // --------- END Supplier Scene(s) --------- //
     
         // --------- Parent Company Scene(s) --------- //
@@ -379,8 +408,19 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Suppliers: Click to Search Button Action ------------ //
-    
-                    // ---------- Supplier Button to Search Workers ---------- //
+                    // --------- Supplies: Click to Add Button Action -------------------- //
+                    btnSupplierOption1.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Pressedd");
+                            primaryStage.getScene().setRoot( gridWorker );
+                            primaryStage.show();
+                        }
+                    });
+                    // --------- END Supplies: Click to Add Button Action --------------- //
+
+
+        // ---------- Supplier Button to Search Workers ---------- //
                         btnSupplierOption2.setOnAction(new EventHandler<ActionEvent>() {
                     
                         @Override

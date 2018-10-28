@@ -33,7 +33,7 @@ public class Main extends Application {
         s2.addWorker("Fred", 24, 7.4f, "123456789");
         s2.addWorker("Doug", 19, 4.2f, "987654321");
         s2.addWorker("Gregor The Elder", 204, 102.3f, "7");
-        s2.addWorker("Tokoyo Drift", 2, 2.0f, "2");
+        s2.addWorker("Tokyo Drift", 2, 2.0f, "2");
         s2.addBank("Pasta Bank");
         bank bsb = s2.getBank("Pasta Bank");
         bsb.addClient("7");

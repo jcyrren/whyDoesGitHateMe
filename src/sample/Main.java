@@ -116,6 +116,12 @@ public class Main extends Application {
             hbBtnBankBack.setAlignment(Pos.BOTTOM_RIGHT);
             hbBtnBankBack.getChildren().add(btnBankBack);
             gridBankMain.add(hbBtnBankBack, 0, 7);
+
+            Button btnBankAddWorker = new Button("Add Worker");
+            HBox hbBtnBankAddWorker = new HBox(10);
+            hbBtnBankAddWorker.setAlignment(Pos.CENTER);
+            hbBtnBankAddWorker.getChildren().add(btnBankAddWorker);
+            gridBankMain.add(hbBtnBankAddWorker, 1, 7);
             
             Button btnBankContinue = new Button("Continue");
             HBox hbBtnBankContinue = new HBox(10);
@@ -123,6 +129,51 @@ public class Main extends Application {
             hbBtnBankContinue.getChildren().add(btnBankContinue);
             gridBankMain.add(hbBtnBankContinue, 2, 7);
             // ---------------------------------------- END Bank Main Scene --- //
+        // ---------------------------------------------------- Bank Add Worker Scene --- //
+            GridPane gridBankMainAddWorker = new GridPane();
+            gridBankMainAddWorker.setAlignment( Pos.CENTER );
+            gridBankMainAddWorker.setHgap( 10 );
+            gridBankMainAddWorker.setVgap( 10 );
+            gridBankMainAddWorker.setPadding( new Insets( 25, 25, 25, 25 ) );
+
+            Text sceneBankAddWorkerTitle = new Text("Add Worker");
+            sceneMenuTitle.setFont( Font.font("Tahoma", FontWeight.NORMAL, 20));
+            gridBankMainAddWorker.add(sceneBankAddWorkerTitle,0,0,2,1);
+
+            Label idLabel = new Label( "ID:" );
+            gridBankMainAddWorker.add( idLabel, 0, 2 );
+
+            TextField idAdd = new TextField();
+            gridBankMainAddWorker.add(idAdd, 1,2);
+
+            Label nameLabel = new Label( "Name:" );
+            gridBankMainAddWorker.add( nameLabel, 0, 3 );
+
+            TextField nameAdd = new TextField();
+            gridBankMainAddWorker.add(nameAdd, 1,3);
+
+            Label ageLabel = new Label( "Age:" );
+            gridBankMainAddWorker.add( ageLabel, 0, 4 );
+
+            TextField ageAdd = new TextField();
+            gridBankMainAddWorker.add(ageAdd, 1,4);
+
+            Button btnBankAddWorkerSubmit = new Button("Submit");
+            HBox hbBtnBankAddWorkerSubmit = new HBox(10);
+            hbBtnBankAddWorkerSubmit.setAlignment(Pos.BOTTOM_RIGHT);
+            hbBtnBankAddWorkerSubmit.getChildren().add(btnBankAddWorkerSubmit);
+            gridBankMainAddWorker.add(hbBtnBankAddWorkerSubmit, 2, 7);
+
+            Button btnBankAddWorkerBack = new Button("Back");
+            HBox hbBtnBankAddWorkerBack = new HBox(10);
+            hbBtnBankAddWorkerBack.setAlignment(Pos.BOTTOM_LEFT);
+            hbBtnBankAddWorkerBack.getChildren().add(btnBankAddWorkerBack);
+            gridBankMainAddWorker.add(hbBtnBankAddWorkerBack, 0, 7);
+
+
+
+            // ---------------------------------------------------- END Bank Add Worker Scene --- //
+
                 // ---------------------------------------------------- Bank Continue Scene --- //
                 GridPane gridBankContinued = new GridPane();
                 gridBankContinued.setAlignment( Pos.CENTER );
@@ -134,8 +185,8 @@ public class Main extends Application {
                 sceneBankContinuedTitle.setFont( Font.font("Tahoma", FontWeight.NORMAL, 16));
                 gridBankContinued.add(sceneBankContinuedTitle, 0, 0, 2, 1);
     
-                Label idLabel = new Label( "Age:" );
-                gridBankContinued.add( idLabel, 0, 2 );
+                Label ageDisplay = new Label( "Age:" );
+                gridBankContinued.add( ageDisplay, 0, 2 );
     
                 Label id1 = new Label( "dob1" );
                 gridBankContinued.add( id1, 1, 2 );
@@ -186,66 +237,66 @@ public class Main extends Application {
                 
                 // ---------------------------------------------------- END Bank Continue Scene --- //
         // --------- END Bank Scenes --------- //
-        
-        // --------- Supplier Scene(s) --------- //
-    
-            // --------- Supplier Scene MAIN --------- //
-            GridPane gridSupplier = new GridPane();
-            gridSupplier.setAlignment( Pos.CENTER );
-            gridSupplier.setHgap( 10 );
-            gridSupplier.setVgap( 10 );
-            gridSupplier.setPadding( new Insets( 25, 25, 25, 25 ) );
-        
-            Text sceneSupplier1 = new Text("Supplier Menu");
-            sceneSupplier1.setFont( Font.font("Tahoma", FontWeight.NORMAL, 20));
-            gridSupplier.add(sceneSupplier1, 0, 0, 2, 1);
-        
-            Button btnSupplierOption1 = new Button("Add Worker");
-            HBox hbBtnSupplierOption1 = new HBox(10);
-            hbBtnBankContinuedBack.setAlignment(Pos.CENTER);
-            hbBtnBankContinuedBack.getChildren().add(btnSupplierOption1);
-            gridSupplier.add(hbBtnSupplierOption1, 0, 2);
-        
-            Button btnSupplierOption2 = new Button("Search for Worker");
-            HBox hbBtnSupplierOption2 = new HBox(10);
-            hbBtnSupplierOption2.setAlignment(Pos.CENTER);
-            hbBtnSupplierOption2.getChildren().add(btnSupplierOption2);
-            gridSupplier.add(hbBtnSupplierOption2, 0, 3);
-    
-            Button btnSupplierBack = new Button("Back");
-            HBox hbBtnSupplierBack = new HBox(10);
-            hbBtnSupplierBack.setAlignment(Pos.CENTER_LEFT);
-            hbBtnSupplierBack.getChildren().add(btnSupplierBack);
-            gridSupplier.add(hbBtnSupplierBack, 0, 4);
-            // --------- END Supplier Scene MAIN --------- //
-                // --------- Supplier Search For Worker  --------- //
-                GridPane gridSupplierSearch = new GridPane();
-                gridSupplierSearch.setAlignment( Pos.CENTER );
-                gridSupplierSearch.setHgap( 10 );
-                gridSupplierSearch.setVgap( 10 );
-                gridSupplierSearch.setPadding( new Insets( 25, 25, 25, 25 ) );
 
-                Text sceneSupplier2 = new Text("Supplier Menu");
-                sceneSupplier2.setFont( Font.font("Tahoma", FontWeight.NORMAL, 20));
-                gridSupplier.add(sceneSupplier2, 0, 0, 2, 1);
-    
-                TextField userTextField = new TextField();
-                gridSupplierSearch.add(userTextField, 0, 0);
-    
-                Button btnSupplierSearch = new Button("Search Worker by ID");
-                HBox hbBtnSupplierSearch = new HBox(10);
-                hbBtnSupplierSearch.setAlignment(Pos.CENTER_LEFT);
-                hbBtnSupplierSearch.getChildren().add(btnSupplierSearch);
-                gridSupplierSearch.add(hbBtnSupplierSearch, 0, 1);
-    
-                Button btnSupplierSearchBack = new Button("Back");
-                HBox hbBtnSupplierSearchBack = new HBox(10);
-                hbBtnSupplierSearchBack.setAlignment(Pos.CENTER_LEFT);
-                hbBtnSupplierSearchBack.getChildren().add(btnSupplierSearchBack);
-                gridSupplierSearch.add(hbBtnSupplierSearchBack, 0, 2);
-                
-                
-                // --------- END Supplier Search For Worker  --------- //
+        // --------- Supplier Scene(s) --------- //
+
+        // --------- Supplier Scene MAIN --------- //
+        GridPane gridSupplier = new GridPane();
+        gridSupplier.setAlignment( Pos.CENTER );
+        gridSupplier.setHgap( 10 );
+        gridSupplier.setVgap( 10 );
+        gridSupplier.setPadding( new Insets( 25, 25, 25, 25 ) );
+
+        Text sceneSupplier1 = new Text("Supplier Menu");
+        sceneSupplier1.setFont( Font.font("Tahoma", FontWeight.NORMAL, 20));
+        gridSupplier.add(sceneSupplier1, 0, 0, 2, 1);
+
+        Button btnSupplierOption1 = new Button("Add Worker");
+        HBox hbBtnSupplierOption1 = new HBox(10);
+        hbBtnSupplierOption1.setAlignment(Pos.CENTER);
+        hbBtnSupplierOption1.getChildren().add(btnSupplierOption1);
+        gridSupplier.add(hbBtnSupplierOption1, 0, 2);
+
+        Button btnSupplierOption2 = new Button("Search for Worker");
+        HBox hbBtnSupplierOption2 = new HBox(10);
+        hbBtnSupplierOption2.setAlignment(Pos.CENTER);
+        hbBtnSupplierOption2.getChildren().add(btnSupplierOption2);
+        gridSupplier.add(hbBtnSupplierOption2, 0, 3);
+
+        Button btnSupplierBack = new Button("Back");
+        HBox hbBtnSupplierBack = new HBox(10);
+        hbBtnSupplierBack.setAlignment(Pos.CENTER_LEFT);
+        hbBtnSupplierBack.getChildren().add(btnSupplierBack);
+        gridSupplier.add(hbBtnSupplierBack, 0, 4);
+        // --------- END Supplier Scene MAIN --------- //
+        // --------- Supplier Search For Worker  --------- //
+        GridPane gridSupplierSearch = new GridPane();
+        gridSupplierSearch.setAlignment( Pos.CENTER );
+        gridSupplierSearch.setHgap( 10 );
+        gridSupplierSearch.setVgap( 10 );
+        gridSupplierSearch.setPadding( new Insets( 25, 25, 25, 25 ) );
+
+        Text sceneSupplier2 = new Text("Supplier Menu");
+        sceneSupplier2.setFont( Font.font("Tahoma", FontWeight.NORMAL, 20));
+        gridSupplier.add(sceneSupplier2, 0, 0, 2, 1);
+
+        TextField userTextField = new TextField();
+        gridSupplierSearch.add(userTextField, 0, 0);
+
+        Button btnSupplierSearch = new Button("Search Worker by ID");
+        HBox hbBtnSupplierSearch = new HBox(10);
+        hbBtnSupplierSearch.setAlignment(Pos.CENTER_LEFT);
+        hbBtnSupplierSearch.getChildren().add(btnSupplierSearch);
+        gridSupplierSearch.add(hbBtnSupplierSearch, 0, 1);
+
+        Button btnSupplierSearchBack = new Button("Back");
+        HBox hbBtnSupplierSearchBack = new HBox(10);
+        hbBtnSupplierSearchBack.setAlignment(Pos.CENTER_LEFT);
+        hbBtnSupplierSearchBack.getChildren().add(btnSupplierSearchBack);
+        gridSupplierSearch.add(hbBtnSupplierSearchBack, 0, 2);
+
+
+        // --------- END Supplier Search For Worker  --------- //
         // --------- END Supplier Scene(s) --------- //
     
         // --------- Parent Company Scene(s) --------- //
@@ -343,6 +394,69 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Bank Continued Menu BACK Button Action ------------ //
+
+                    // ---------- Bank Add Worker Button Action ------------- //
+
+                    btnBankAddWorker.setOnAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Pressedd");
+
+
+                            primaryStage.getScene().setRoot( gridBankMainAddWorker );
+                            //        primaryStage.setScene(new Scene(grid, 300, 250));
+                            primaryStage.show();
+                        }
+                    });
+                    // --------- END Bank Add Worker Button Action ------------ //
+
+                    // ---------- SUPPLIER ADD WORKER BUTTON ACTION ----------- //
+                    btnSupplierOption1.setOnAction(new EventHandler<ActionEvent>() {
+                        @Override
+                        public void handle(ActionEvent event) {
+                            primaryStage.getScene().setRoot( gridBankMainAddWorker );
+                            //        primaryStage.setScene(new Scene(grid, 300, 250));
+                            primaryStage.show();
+                        }
+                    });
+
+                    // ---------- END SUPPLIER ADD WORKER BUTTON ACTION --------- //
+
+                    // ---------- Bank Add Worker Back Button ------------- //
+
+                    btnBankAddWorkerBack.setOnAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                            System.out.println("Pressedd");
+
+
+                            primaryStage.getScene().setRoot( gridBankMain );
+                            //        primaryStage.setScene(new Scene(grid, 300, 250));
+                            primaryStage.show();
+                        }
+                    });
+                    // --------- END Bank Add Worker Back Button Action ------------ //
+
+                    // ---------- Bank Add Worker Submit Button ------------- //
+
+                   btnBankAddWorkerSubmit.setOnAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+                           System.out.println("Pressedd");
+
+                           s2.addWorker(nameAdd.getText(), Integer.parseInt(ageAdd.getText()), 5.0f, idAdd.getText());
+                           bsb.addClient(idAdd.getText());
+
+
+                           primaryStage.getScene().setRoot( gridBankMain );
+                            //        primaryStage.setScene(new Scene(grid, 300, 250));
+                            primaryStage.show();
+                        }
+                    });
+                    // --------- END Bank Add Worker Submit Button Action ------------ //
     
                     // ---------- Bank Submit Button Action ---------- //
                     btnBankSumbit.setOnAction(new EventHandler<ActionEvent>() {
@@ -367,14 +481,14 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Bank Submit Button Action ------------ //
-    
+
                     // ---------- Suppliers: Click to Search Button Action ---------- //
                     btnMenuSupplier.setOnAction(new EventHandler<ActionEvent>() {
-                    
+
                         @Override
                         public void handle(ActionEvent event) {
                             System.out.println("Pressed");
-                        
+
                             primaryStage.getScene().setRoot( gridSupplier );
                                                     /*
                                                            CODE TO
@@ -385,14 +499,14 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Suppliers: Click to Search Button Action ------------ //
-    
+
                     // ---------- Supplier Button to Search Workers ---------- //
                         btnSupplierOption2.setOnAction(new EventHandler<ActionEvent>() {
-                    
+
                         @Override
                         public void handle(ActionEvent event) {
                             System.out.println("Pressed");
-                        
+
                             primaryStage.getScene().setRoot( gridSupplierSearch );
                                         /*
                                                CODE TO
@@ -403,14 +517,14 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Supplier Buttono to Search Workers ------------ //
-    
+
                     // ---------- Supplier Search Back Button ---------- //
                     btnSupplierSearchBack.setOnAction(new EventHandler<ActionEvent>() {
-                    
+
                         @Override
                         public void handle(ActionEvent event) {
                             System.out.println("Pressed");
-                        
+
                             primaryStage.getScene().setRoot( gridSupplier );
                                                     /*
                                                            CODE TO
@@ -421,16 +535,16 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Supplier Search Back Button ------------ //
-    
-        
-    
+
+
+
                     // ---------- Supplier Search Back Button ---------- //
                     btnSupplierBack.setOnAction(new EventHandler<ActionEvent>() {
-                    
+
                         @Override
                         public void handle(ActionEvent event) {
                             System.out.println("Pressed");
-                        
+
                             primaryStage.getScene().setRoot( gridMainMenu );
                                                                 /*
                                                                        CODE TO
@@ -441,14 +555,14 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Supplier Search Back Button ------------ //
-    
+
                     // ---------- Supplier Submit Button ---------- //
                     btnSupplierSearch.setOnAction(new EventHandler<ActionEvent>() {
-                    
+
                         @Override
                         public void handle(ActionEvent event) {
                             System.out.println("Pressed");
-                        
+
                             primaryStage.getScene().setRoot( gridMainMenu );
                                 /*
                                        CODE TO

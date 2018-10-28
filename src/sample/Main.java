@@ -20,6 +20,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javax.swing.text.TableView;
+
 public class Main extends Application {
 
     @Override
@@ -248,16 +250,18 @@ public class Main extends Application {
     
         // --------- Parent Company Scene(s) --------- //
         GridPane gridParent = new GridPane();
-        gridParent.setAlignment( Pos.CENTER );
+        gridParent.setAlignment( Pos.TOP_LEFT );
         gridParent.setHgap( 10 );
-        gridParent.setVgap( 10 );
-        gridParent.setPadding( new Insets( 25, 25, 25, 25 ) );
+        gridParent.setVgap( 5 );
+        gridParent.setPadding( new Insets( 10, 25, 25, 25 ) );
     
         Button btnParentBack = new Button("Back");
         HBox hbBtnParentBack = new HBox(10);
         hbBtnParentBack.setAlignment(Pos.CENTER_LEFT);
         hbBtnParentBack.getChildren().add(btnParentBack);
         gridParent.add(hbBtnParentBack, 0, 2);
+
+
         // --------- END Parent Company Scene(s) --------- //
         
                     // ---------- Main Menu Bank Button Action ------------- //

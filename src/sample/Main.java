@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -30,22 +31,12 @@ public class Main extends Application {
         PC.addSupplier("Supplier2", "Brazil");
         supplier s1 = PC.getSupplier("Supplier1");
         supplier s2 = PC.getSupplier("Supplier2");
-        s2.addWorker("Fred", 24, 7.4f, "123456789");
-        s2.addWorker("Doug", 19, 4.2f, "987654321");
+        s1.addWorker("Fred", 24, 7.4f, "123456789");
+        s1.addWorker("Doug", 19, 4.2f, "987654321");
         s2.addWorker("Gregor The Elder", 204, 102.3f, "7");
-        s2.addWorker("Tokoyo Drift", 2, 2.0f, "2");
         s2.addBank("Pasta Bank");
         bank bsb = s2.getBank("Pasta Bank");
         bsb.addClient("7");
-        bsb.addClient("123456789");
-        bsb.addClient("987654321");
-        bsb.addClient("2");
-        s2.getWorker("7").setMonthlyHours(9);
-        s2.getWorker("123456789").setMonthlyHours(9);
-        s2.getWorker("987654321").setMonthlyHours(9);
-        s2.getWorker("2").setMonthlyHours(2);
-
-
 
 
 
@@ -129,10 +120,10 @@ public class Main extends Application {
                 gridBankContinued.setPadding( new Insets( 25, 25, 25, 25 ) );
     
                 Text sceneBankContinuedTitle = new Text("Bank Menu");
-                sceneBankContinuedTitle.setFont( Font.font("Tahoma", FontWeight.NORMAL, 16));
+                sceneBankContinuedTitle.setFont( Font.font("Tahoma", FontWeight.NORMAL, 20));
                 gridBankContinued.add(sceneBankContinuedTitle, 0, 0, 2, 1);
     
-                Label idLabel = new Label( "Age:" );
+                Label idLabel = new Label( "Date of birth:" );
                 gridBankContinued.add( idLabel, 0, 2 );
     
                 Label id1 = new Label( "dob1" );
@@ -145,7 +136,7 @@ public class Main extends Application {
                 Label paid = new Label( "Amount paid:" );
                 gridBankContinued.add( paid, 0, 3 );
             
-                Label paid1 = new Label( "$$$");
+                Label paid1 = new Label( "£££" );
                 gridBankContinued.add( paid1, 1, 3 );
             
 //                Label paid2 = new Label( "£££" );
@@ -154,17 +145,16 @@ public class Main extends Application {
                 Label datePaid = new Label( "Date Last Paid:" );
                 gridBankContinued.add( datePaid, 0, 4 );
             
-                Label datePaid1 = new Label( "like a month ago ish" );
+                Label datePaid1 = new Label( "///" );
                 gridBankContinued.add( datePaid1, 1, 4 );
-
-                /*
+            
                 Label datePaid2 = new Label( "///" );
                 gridBankContinued.add( datePaid2, 3, 4 );
-                */
+                
                 
                 CheckBox cb1 = new CheckBox( "Over 18" );
                 CheckBox cb2 = new CheckBox( "Paid" );
-                CheckBox cb3 = new CheckBox( "Paid On Time" );
+                CheckBox cb3 = new CheckBox( "Verified" );
                 
                 gridBankContinued.add( cb1, 4, 2 );
                 gridBankContinued.add( cb2, 4, 3 );
@@ -247,18 +237,43 @@ public class Main extends Application {
         // --------- END Supplier Scene(s) --------- //
     
         // --------- Parent Company Scene(s) --------- //
-        GridPane gridParent = new GridPane();
-        gridParent.setAlignment( Pos.CENTER );
-        gridParent.setHgap( 10 );
-        gridParent.setVgap( 10 );
-        gridParent.setPadding( new Insets( 25, 25, 25, 25 ) );
-    
-        Button btnParentBack = new Button("Back");
-        HBox hbBtnParentBack = new HBox(10);
-        hbBtnParentBack.setAlignment(Pos.CENTER_LEFT);
-        hbBtnParentBack.getChildren().add(btnParentBack);
-        gridParent.add(hbBtnParentBack, 0, 2);
-        // --------- END Parent Company Scene(s) --------- //
+            // --------- Parent Company Scene MAIN ------- //
+
+            GridPane gridParent = new GridPane();
+            gridParent.setAlignment( Pos.CENTER );
+            gridParent.setHgap( 10 );
+            gridParent.setVgap( 10 );
+            gridParent.setPadding( new Insets( 25, 25, 25, 25 ) );
+
+
+            Text suppliersManage = new Text( "Manage suppliers" );
+            suppliersManage.setFont( Font.font("Tahoma", FontWeight.NORMAL, 30));
+            gridParent.add( suppliersManage, 0, 0, 3, 1);
+
+            Button btnParentBack = new Button("Back");
+            HBox hbBtnParentBack = new HBox();
+            hbBtnParentBack.setAlignment(Pos.BOTTOM_RIGHT);
+            hbBtnParentBack.getChildren().add(btnParentBack);
+            gridParent.add(hbBtnParentBack, 3, 2);
+
+            Button btnParentRemove = new Button("Remove");
+            HBox hbBtnParentRemove = new HBox();
+            hbBtnParentRemove.setAlignment(Pos.BOTTOM_CENTER);
+            hbBtnParentRemove.getChildren().add(btnParentRemove);
+            gridParent.add(hbBtnParentRemove, 2, 2);
+
+            Button btnParentAdd = new Button("Add");
+            HBox hbBtnParentAdd = new HBox();
+            hbBtnParentAdd.setAlignment(Pos.BOTTOM_LEFT);
+            hbBtnParentAdd.getChildren().add(btnParentAdd);
+            gridParent.add(hbBtnParentAdd, 1, 2);
+
+            TextField supplierTextfield = new TextField();
+            supplierTextfield.setAlignment(Pos.TOP_LEFT);
+            gridParent.add(supplierTextfield, 1, 1, 3, 1);
+
+        // --------- END Parent Company Scene MAIN ------- //
+        // --------- END Parent Company Scenes --------- //
         
                     // ---------- Main Menu Bank Button Action ------------- //
                 
@@ -268,29 +283,12 @@ public class Main extends Application {
                         public void handle(ActionEvent event) {
                             System.out.println("PressedContinue");
                             String idIN = idInput.getText();
-                            if (bsb.clientCheck(idIN)) {
-                                bsb.setActiveWorker(idIN);           //  Check actual string input from text box here
-                                System.out.println("Active worker set for Pasta Bank");
-                                primaryStage.getScene().setRoot( gridBankContinued );
-                                //        primaryStage.setScene(new Scene(grid, 300, 250));
-
-                                worker current = bsb.getActiveWorker();
-
-                                sceneBankContinuedTitle.setText(current.getName());
-                                paid1.setText(Float.toString(current.getExpectedPay()) );
-                                id1.setText(Integer.toString(current.getAge()));
-
-
-
-                                primaryStage.show();
-                            } else {
-                                idInput.clear();
-                            }
-
-                            //System.out.println("Active worker set for Pasta Bank");
-
-
-
+                            if (bsb.clientCheck(idIN)) bsb.setActiveWorker(idIN);            //  Check actual string input from text box here
+                            System.out.println("Active worker set for Pasta Bank");
+                        
+                            primaryStage.getScene().setRoot( gridBankContinued );
+            //        primaryStage.setScene(new Scene(grid, 300, 250));
+                            primaryStage.show();
                         }
                     });
                 
@@ -350,7 +348,7 @@ public class Main extends Application {
                             //if (bsb.clientCheck("7")) System.out.println("aaaaaaaaa");
 
 
-                            primaryStage.getScene().setRoot( gridBankMain );
+                            primaryStage.getScene().setRoot( gridMainMenu );
 
                             bsb.validateWorker(cb1.isSelected(), cb2.isSelected(), cb3.isSelected());
                             /*
@@ -358,7 +356,7 @@ public class Main extends Application {
                                    ENTER CHOICES
                                    TO THE DATABASE
                              */
-                            System.out.println(bsb.getActiveWorker().overallVerity());
+                            System.out.print(s2.getWorker("7").overallVerity());
                             primaryStage.show();
                         }
                     });
@@ -491,12 +489,10 @@ public class Main extends Application {
                         }
                     });
                     // --------- END Parent Company Back  Button ------------ //
-    
-        
         
         // --------- Prepare for display --------- //
     
-        Scene sceneMenu = new Scene (gridMainMenu, 640,480);
+        Scene sceneMenu = new Scene (gridMainMenu, 400,400);
         primaryStage.setScene(sceneMenu);
         primaryStage.show();
         

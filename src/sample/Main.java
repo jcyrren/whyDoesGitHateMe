@@ -33,14 +33,17 @@ public class Main extends Application {
         s2.addWorker("Fred", 24, 7.4f, "123456789");
         s2.addWorker("Doug", 19, 4.2f, "987654321");
         s2.addWorker("Gregor The Elder", 204, 102.3f, "7");
+        s2.addWorker("Tokoyo Drift", 2, 2.0f, "2");
         s2.addBank("Pasta Bank");
         bank bsb = s2.getBank("Pasta Bank");
         bsb.addClient("7");
         bsb.addClient("123456789");
         bsb.addClient("987654321");
+        bsb.addClient("2");
         s2.getWorker("7").setMonthlyHours(9);
         s2.getWorker("123456789").setMonthlyHours(9);
         s2.getWorker("987654321").setMonthlyHours(9);
+        s2.getWorker("2").setMonthlyHours(2);
 
 
 
@@ -126,10 +129,10 @@ public class Main extends Application {
                 gridBankContinued.setPadding( new Insets( 25, 25, 25, 25 ) );
     
                 Text sceneBankContinuedTitle = new Text("Bank Menu");
-                sceneBankContinuedTitle.setFont( Font.font("Tahoma", FontWeight.NORMAL, 20));
+                sceneBankContinuedTitle.setFont( Font.font("Tahoma", FontWeight.NORMAL, 16));
                 gridBankContinued.add(sceneBankContinuedTitle, 0, 0, 2, 1);
     
-                Label idLabel = new Label( "Date of birth:" );
+                Label idLabel = new Label( "Age:" );
                 gridBankContinued.add( idLabel, 0, 2 );
     
                 Label id1 = new Label( "dob1" );
@@ -151,16 +154,17 @@ public class Main extends Application {
                 Label datePaid = new Label( "Date Last Paid:" );
                 gridBankContinued.add( datePaid, 0, 4 );
             
-                Label datePaid1 = new Label( "///" );
+                Label datePaid1 = new Label( "like a month ago ish" );
                 gridBankContinued.add( datePaid1, 1, 4 );
-            
+
+                /*
                 Label datePaid2 = new Label( "///" );
                 gridBankContinued.add( datePaid2, 3, 4 );
-                
+                */
                 
                 CheckBox cb1 = new CheckBox( "Over 18" );
                 CheckBox cb2 = new CheckBox( "Paid" );
-                CheckBox cb3 = new CheckBox( "Verified" );
+                CheckBox cb3 = new CheckBox( "Paid On Time" );
                 
                 gridBankContinued.add( cb1, 4, 2 );
                 gridBankContinued.add( cb2, 4, 3 );
@@ -264,14 +268,29 @@ public class Main extends Application {
                         public void handle(ActionEvent event) {
                             System.out.println("PressedContinue");
                             String idIN = idInput.getText();
-                            if (bsb.clientCheck(idIN)) bsb.setActiveWorker(idIN);            //  Check actual string input from text box here
-                            System.out.println("Active worker set for Pasta Bank");
-                        
-                            primaryStage.getScene().setRoot( gridBankContinued );
-            //        primaryStage.setScene(new Scene(grid, 300, 250));
-                            paid1.setText(Float.toString(bsb.getActiveWorker().getExpectedPay()) );
+                            if (bsb.clientCheck(idIN)) {
+                                bsb.setActiveWorker(idIN);           //  Check actual string input from text box here
+                                System.out.println("Active worker set for Pasta Bank");
+                                primaryStage.getScene().setRoot( gridBankContinued );
+                                //        primaryStage.setScene(new Scene(grid, 300, 250));
 
-                            primaryStage.show();
+                                worker current = bsb.getActiveWorker();
+
+                                sceneBankContinuedTitle.setText(current.getName());
+                                paid1.setText(Float.toString(current.getExpectedPay()) );
+                                id1.setText(Integer.toString(current.getAge()));
+
+
+
+                                primaryStage.show();
+                            } else {
+                                idInput.clear();
+                            }
+
+                            //System.out.println("Active worker set for Pasta Bank");
+
+
+
                         }
                     });
                 
@@ -477,7 +496,7 @@ public class Main extends Application {
         
         // --------- Prepare for display --------- //
     
-        Scene sceneMenu = new Scene (gridMainMenu, 400,400);
+        Scene sceneMenu = new Scene (gridMainMenu, 640,480);
         primaryStage.setScene(sceneMenu);
         primaryStage.show();
         
